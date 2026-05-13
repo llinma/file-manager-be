@@ -2,8 +2,8 @@ spring:
   # 数据库配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/test_db?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
-#    url: jdbc:mysql://localhost:3306/knowledge?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    #    url: jdbc:mysql://localhost:3306/test_db?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:3306/knowledge?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
     username: root
     password: 123456
   # 跨域配置（适配React前端）
@@ -34,6 +34,12 @@ server:
 # 文件上传配置
 file:
   upload:
-    path: D:/pdf_upload/ # Windows路径（Linux用 /usr/local/pdf_upload/）
-#    path: /usr/local/pdf_upload/ # Windows路径（Linux用 /usr/local/pdf_upload/）
+    #    path: D:/pdf_upload/ # Windows路径（Linux用 /usr/local/pdf_upload/）
+    path: /usr/local/pdf_upload/ # Windows路径（Linux用 /usr/local/pdf_upload/）
     max-size: 10MB        # 最大D:/pdf_upload/文件大小
+
+# 新增：通义千问大模型配置
+dashscope:
+  api-key: sk-07f91910bbaa42fdac72dc48aae74d4e # 从 https://dashscope.aliyun.com/ 获取
+  model: qwen-turbo          # 免费模型
+  base-url: https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation
